@@ -17,12 +17,12 @@ class ContactData extends Component {
     }
 
     orderHandler = (event) => {
-        const {ingredients, price} = this.props.ingredients;
+        const {ingredients, price} = this.props;
         event.preventDefault();
         this.setState({loading: true})
         const order = {
-            ingredients,
-            price,
+            ingredients: ingredients,
+            price: price,
             customer: {
                 name: 'timofey',
                 email: 'timofey.zarenok@gmail.com',
