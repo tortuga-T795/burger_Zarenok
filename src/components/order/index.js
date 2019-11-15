@@ -1,6 +1,5 @@
 import React from 'react'
 import './order.css'
-import BurgerIngredient from '../burger/burgerIngredient'
 
 const Order = ({ingredients, price}) => {
     const ingr = [];
