@@ -1,45 +1,41 @@
 import React, {Component} from 'react'
 import axios from '../../../axios--orders'
 import withError from '../../../hoc/withError'
-
+import {connect} from 'react-redux'
+import { setOrders } from '../../../logicRedux/actions'
+import Spinner from '../../../components/UI/spinner'
 import Order from '../../../components/order'
 
 class Orders extends Component {
-    state = {
-        orders: [],
-        loading: true
-    }
     
     componentDidMount() {
-        axios.get('/orders.json')
-        .then(response => {
-            const orders = [];
-            for(let key in response.data){
-                orders.push({
-                    ...response.data[key],
-                id: key
-            });
-            }
-            this.setState({loading: false, orders: orders})
-        })
-        .catch(err => {
-            this.setState({loading: false})
-        })
+        this.props.onSetOrders();
     }
 
     render() {
-        return(
-            <div>
-                {
-                this.state.orders.map(el => (
+        const {orders, loading} = this.props;
+        let comp = <Spinner/>;
+        if(!loading){
+            comp = orders.map(el => (
                 <Order key={el.id}
                  ingredients={el.ingredients}
                  price={el.price}/>
                 ))
-                }
+        }
+        return(
+            <div>
+                {comp}
             </div>
         );
     }
 }
 
-export default withError(Orders, axios);
+export default connect(
+    state => ({
+        orders: state.order.orders,
+        loading: state.order.loading
+    }),
+    dispatch => ({
+        onSetOrders: () => dispatch(setOrders())
+    })
+)(withError(Orders, axios));

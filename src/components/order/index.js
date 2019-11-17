@@ -1,6 +1,7 @@
 import React from 'react'
 import './order.css'
 
+
 const Order = ({ingredients, price}) => {
     const ingr = [];
     for(let key in ingredients){

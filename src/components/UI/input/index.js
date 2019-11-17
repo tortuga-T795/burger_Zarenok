@@ -28,18 +28,18 @@ const Input = ({elementType, elementConfig, value, changed, invalid, shouldValid
         case('select'):
         inputElement = (
         <div>
-        <p>Select a delivery method</p>
-        <select 
-            className={inputClasses}
-            {...elementConfig}
-            value={value}
-            onChange={changed}
-            >
-            {elementConfig.options.map(el => (
-            <option key={el.value} value={el.value}>
-                {el.displayValue}
-            </option>
-            ))}
+            <p>Select a delivery method</p>
+            <select 
+                className={inputClasses}
+                {...elementConfig}
+                value={value}
+                onChange={changed}
+                >
+                {elementConfig.options.map(el => (
+                <option key={el.value} value={el.value}>
+                    {el.displayValue}
+                </option>
+                ))}
             </select>
         </div>
         )
