@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import ToolBar from '../navigation/myToolbar/index'
 import SideDrawer from '../navigation/sideDrawer'
 
-import './myLayout.css'
+import classes from './myLayout.module.css'
 
 class Layout extends Component {
     state = {
@@ -27,9 +27,10 @@ class Layout extends Component {
         <>
             <ToolBar open={this.sideDrawerOpen}/>
             <SideDrawer 
-            open={showSideDrawer} 
-            close={this.sideDrawerClosed}/>
-            <main className={"Content"}>
+                open={showSideDrawer} 
+                close={this.sideDrawerClosed}
+            />
+            <main className={classes.Content}>
                 {this.props.children}
             </main>
         </>

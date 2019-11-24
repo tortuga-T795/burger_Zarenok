@@ -1,6 +1,6 @@
 import React from 'react'
-import './burger.css'
-import BurgerIngredient from './burgerIngredient'
+import classes from './burger.module.css'
+import {BurgerIngredient, StandardBread} from './burgerIngredient'
 
 const Burger = ({ingredients}) => {
      
@@ -11,13 +11,13 @@ const Burger = ({ingredients}) => {
         }
     }
     return(
-        <div className="Burger">
-            <BurgerIngredient type="bread-top"/>
+        <div className={classes.Burger}>
+            <StandardBread>
             {
                 transformIngredients.length === 0 ? 
                 <p>Plese adding ingredients</p> : transformIngredients
             }
-            <BurgerIngredient type="bread-bottom"/>
+            </StandardBread>
         </div>
     );
 };

@@ -3,12 +3,15 @@ import Logo from '../../logo'
 import NavigationItems from '../navigationItems'
 import BackDrop from '../../UI/backDrop'
 
-import './sideDrawer.css'
+import classes from './sideDrawer.module.css'
 
 const SideDrawer = ({open, close}) => {
-    let attachedClasses = ["SideDrawer", "Close"];
+    let attachedClasses = [classes.SideDrawer]
     if(open){
-        attachedClasses = ["SideDrawer", "Open"]
+        attachedClasses.push(classes.Open);
+    }
+    else{
+        attachedClasses.push(classes.Close)
     }
     return(
         <>
