@@ -10,6 +10,18 @@
     top: 30%;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+    animation-duration: 0.5s;
+    animation-name: slidein;
+}
+
+@keyframes slidein{
+    to {
+        transform: translateY(0);
+    }
+    
+    from {
+        transform: translateY(-100vh);
+    }
 }
 
 @media (min-width: 600px) {

@@ -23,9 +23,7 @@ const Toolbar = ({open}) => (
         </MobileOnly>
         <Logo height="80%"/>
         <DesktopOnly>
-            <nav>
-                <NavigationItems/>
-            </nav>
+            <NavigationItems/>
         </DesktopOnly>
     </header>
 );

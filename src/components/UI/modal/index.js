@@ -6,16 +6,12 @@ import './modal.css'
 class Modal extends Component {
     
     shouldComponentUpdate(nextProps, nextState) {
-            return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
+        return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
     }
     
     render() {
         const {children, show, modalClosed} = this.props;
-        const temp1 = (<div className="Modal"
-        style={{
-            transform: 'translateY(0)',
-            opacity: '1'
-        }}>
+        const temp1 = (<div className="Modal">
             {children}
         </div>);
         const temp = show ? temp1 : null;
