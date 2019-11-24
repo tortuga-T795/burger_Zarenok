@@ -3,7 +3,7 @@ import CheckoutSummary from '../../../components/order/checkoutSummary'
 import {Route, Redirect} from 'react-router-dom'
 import ContactData from './contactData'
 import {connect} from 'react-redux'
-import { purchaseInit } from '../../../logicRedux/actions'
+
 
 class Checkout extends Component {    
     onCheckoutCancel = () => {
@@ -17,9 +17,8 @@ class Checkout extends Component {
     render() {
         const {ings, purchased} = this.props;
         let summary = <Redirect to="/"/>
+        const purchaseRedirect = purchased ? <Redirect to="/"/> : null;
         if(ings){
-            console.log(this.props)
-            const purchaseRedirect = purchased ? <Redirect to="/"/> : null;
             summary = (
                 <>
                     {purchaseRedirect}
@@ -29,7 +28,7 @@ class Checkout extends Component {
                     onCheckoutContinue={this.onCheckoutContinue}
                     />
                     <Route path={this.props.match.path + '/contact-data'}
-                    component={ContactData}/>)}/>
+                    component={ContactData}/>
                 </>
             )
         }
@@ -40,5 +39,6 @@ class Checkout extends Component {
 export default connect(
     state => ({
         ings: state.burger.ingredients,
-    }),
+        purchased: state.order.purchased
+    })
 )(Checkout);

@@ -11,17 +11,18 @@ class Modal extends Component {
     
     render() {
         const {children, show, modalClosed} = this.props;
+        const temp1 = (<div className="Modal"
+        style={{
+            transform: 'translateY(0)',
+            opacity: '1'
+        }}>
+            {children}
+        </div>);
+        const temp = show ? temp1 : null;
         return(
             <>
                 <BackDrop show={show} clicked={modalClosed}/>
-                <div 
-                className="Modal"
-                style={{
-                    transform: show ? 'translateY(0)' : 'translateY(-100vh)',
-                    opacity: show ? '1' : '0' 
-                }}>
-                    {children}
-                </div>
+                {temp}
             </>
         );
     }

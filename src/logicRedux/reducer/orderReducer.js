@@ -1,16 +1,16 @@
-import { PURCHASE_BURGER_SUCCESS, PURCHASE_BURGER_FAIL, PURCHASE_BURGER_START, PURCHASE_INIT, SET_ORDERS_START, SET_ORDERS_SUCCESS, SET_INGREDIENTS_FAILED, SET_ORDERS_FAIL } from '../constants'
+import { PURCHASE_BURGER_SUCCESS, PURCHASE_BURGER_FAIL, PURCHASE_BURGER_START, PURCHASE_INIT, SET_ORDERS_START, SET_ORDERS_SUCCESS, SET_ORDERS_FAIL } from '../constants'
 import {updateObject} from '../util'
 
 const initialState = {
     orders: [],
     loading: false,
-    purshased: false
+    purchased: false
 };
 
 const OrderReducer = (state = initialState, action) => {
     switch(action.type){
         case PURCHASE_INIT:
-            return updateObject(state, {purshased: false})
+            return updateObject(state, {purchased: false})
         case PURCHASE_BURGER_START:
             return updateObject(state,{loading: true})
         case PURCHASE_BURGER_SUCCESS:
@@ -19,7 +19,7 @@ const OrderReducer = (state = initialState, action) => {
                 id: action.value.id
             }
             return updateObject(state, {
-                purshased: true,
+                purchased: true,
                 loading: false,
                 orders: state.orders.concat(newOrder)
             }) 

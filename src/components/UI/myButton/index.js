@@ -1,5 +1,5 @@
 import React from 'react'
-import './myButton.css'
+import './myButton.css' 
 
 const Button = ({children, clicked, btnType, disabled}) => (
     <button
