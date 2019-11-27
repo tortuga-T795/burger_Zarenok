@@ -11,7 +11,7 @@ class Modal extends Component {
     
     render() {
         const {children, show, modalClosed} = this.props;
-        const temp1 = show ? (<div className={show ? "Modal Open" : "Modal Close"}>
+        const temp1 = show ? (<div className={"Modal Open"}>
             {children}
         </div>) : null;
         return(
