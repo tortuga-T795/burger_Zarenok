@@ -10,9 +10,28 @@
     top: 30%;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
+}
+
+.Open {
     animation-duration: 0.5s;
     animation-name: slidein;
 }
+
+.Close {
+    animation-duration: 0.5s;
+    animation-name: slideout;
+}
+
+@keyframes slideout{
+    to {
+        transform: translateY(-100vh);
+    }
+    
+    from {
+        transform: translateY(0);
+    }
+}
+
 
 @keyframes slidein{
     to {

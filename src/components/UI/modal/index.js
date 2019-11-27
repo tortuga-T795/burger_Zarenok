@@ -11,14 +11,13 @@ class Modal extends Component {
     
     render() {
         const {children, show, modalClosed} = this.props;
-        const temp1 = (<div className="Modal">
+        const temp1 = show ? (<div className={show ? "Modal Open" : "Modal Close"}>
             {children}
-        </div>);
-        const temp = show ? temp1 : null;
+        </div>) : null;
         return(
             <>
                 <BackDrop show={show} clicked={modalClosed}/>
-                {temp}
+                {temp1}
             </>
         );
     }

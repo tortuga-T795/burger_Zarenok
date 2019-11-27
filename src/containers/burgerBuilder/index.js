@@ -22,10 +22,11 @@ class BurgerBuilder extends Component {
     }
 
     updatePurchase(ingredients) {
-        const sum = Object.keys(ingredients)
-        .map(key =>  ingredients[key])
-        .reduce((sum, el) => sum + el,0);
-        return sum > 0;
+        let sum = 0;
+        for(let ing in ingredients){
+            sum += ingredients[ing];
+        }
+        return sum;
     }
 
     purchaseHandler = () => {
